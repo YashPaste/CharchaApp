@@ -10,7 +10,6 @@ import { auth } from "../firebase"
 
 export default function Chats() {
   const didMountRef = useRef(false)
-  // eslint-disable-next-line
   const [ loading, setLoading ] = useState(true)
   const { user } = useAuth()
   const history = useHistory()
@@ -72,7 +71,7 @@ export default function Chats() {
   }, [user, history])
   
 
-  if (!user) return <div />
+  if (!user || loading) return "Loading....."
 
   return (
     <div className='chats-page'>
